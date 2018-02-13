@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-search-form (driverLicenseObtained)="showEligibility($event)"></app-search-form>
+      <br>
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-10">
+    <div class="card" [hidden]="isEmpty">
+      <div class="card-header">
+        <h5 class="card-title">Eligibility result</h5>
+      </div>
+      <div class="card-block">
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">Driver License: {{eligibility?.driverLicense}}</li>
+              <li *ngIf="showAccessDetail" class="list-group-item">Name: {{eligibility?.name}}</li>
+              <li *ngIf="showAccessDetail && showPhone" class="list-group-item">Phone: {{eligibility?.phone}}</li>
+              <li *ngIf="showAccessDetail && showEmail" class="list-group-item">Email: {{eligibility?.email}}</li>
+            </ul>
+        <br>
+        <h5 class="card-text">{{eligibility?.message}}</h5>
+        <br>
+        <div *ngIf="showAccessDetail" >
+          <a href="" routerLink="/owner/" class="btn btn-primary" (click)="showDetail(); detail.showDetail()">Detail</a>
+          <a  href="" routerLink="/owner/" class="btn btn-primary" (click)="hidePicture=!hidePicture">Picture</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2"> 
+    <div class="card"  [hidden]="hidePicture">
+      <div class="card-header">
+        <h5 class="card-title">Picture</h5>
+      </div>
+      <img class="card-img-top" src={{eligibility.picture}} alt="Card image cap">
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+      <app-detail [hidden] = "hideDetail" [driverLicense]="eligibility.driverLicense" #detail></app-detail>
+  </div>
+</div>  

@@ -1,0 +1,15 @@
+<app-vehicle-search (vinObtained)="showVehicleEligibility($event)"></app-vehicle-search>
+<br>
+<div class="card" [hidden]="isEmpty">
+    <div class="card-header">
+      <h5 class="card-title">Eligibility result</h5>
+    </div>
+    <div class="card-block">
+      <h6 class="card-title">VIN: {{vehicleEligibility?.vin}}</h6>
+      <h1></h1>
+      <p class="card-text">{{vehicleEligibility?.message}}</p>
+      <a *ngIf = "showDetailButton" href="" routerLink="/vehicle/" class="btn btn-primary" (click)="showDetail(); detail.showDetail()">Detail</a>
+    </div>
+  </div>
+
+  <app-vehicle-detail [hidden] = "hideDetail" [vin]="vehicleEligibility.vin" #detail></app-vehicle-detail>

@@ -1,0 +1,27 @@
+<div class="card">
+    <h3 class="card-header">Determine Vehicle Eligibility</h3>
+    <div class="card-block">
+      <form class="form-inline" #f="ngForm" novalidate (submit)="onSubmit(f)">
+        <label for="inlineFormInput"> VIN  </label>
+        <input 
+          type="text" 
+          class="form-control mx-sm-3 mb-2 mr-sm-2 mb-sm-0" 
+          id="inlineFormInput" 
+          placeholder="UMWK36M11RVXKL1II" 
+          style="text-transform:uppercase"
+          [(ngModel)]="vin" 
+          name="vin"
+          #vn="ngModel"
+          minlength="12"
+          maxlength="17"
+          required
+          >
+        <input type="submit" class="btn btn-success" value="Submit">
+      </form>
+      <br>
+      <div *ngIf="vn.errors?.required && vn.touched" class="alert alert-danger">VIN is required</div>
+      <div *ngIf="vn.errors?.minlength && vn.touched" class="alert alert-danger">VIN should be at least 12 characteres</div>
+    </div>
+  </div>
+  
+  

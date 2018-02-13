@@ -1,0 +1,35 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" routerLink="/home">Eligibility Verification</a>
+
+    <div class="collapse navbar-collapse" id="navbarsDefault">
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/home">Home </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" href="#" routerLink="/owner">Owner</a>
+          </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/vehicle">Vehicle</a>
+        </li>
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a class="nav-link" href="#" routerLink="/login">Login</a>
+        </li>
+  
+        <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" >{{loggedInUser}}</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" href="#" routerLink="/login" (click)="onLogoutClick()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>

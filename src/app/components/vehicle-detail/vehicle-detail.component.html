@@ -1,0 +1,26 @@
+<br>
+<table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="w-15">Type of Record</th>
+          <th class="w-15 text-center" >Vehicle Make</th>
+          <th class="w-15 text-center" >Reported Date</th>
+          <th class="w-20" >Street Reference</th>
+          <th class="w-10 text-center" >Location</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let vehicleRecord of vehicleRecords">
+              <th scope="row">1</th>
+              <td class="w-15">{{vehicleRecord.recordType}}</td>
+              <td class="w-15 text-center">{{vehicleRecord.vehicleMake}}</td>
+              <td class="w-15 text-center">{{vehicleRecord.dateReported}}</td>
+              <td class="w-20">{{vehicleRecord.streetName}}</td>
+              <td class="w-10 text-center"><a href="" routerLink="/vehicle/" (click)="map.showMap()"><i class="fa fa-location-arrow" aria-hidden="true"></i></a></td>
+          </tr>
+      </tbody>
+  </table>
+
+  <app-vehicle-map [hidden] = "map.hideMap" [lat] = "lat" [lng] = "lng" #map></app-vehicle-map>
+  

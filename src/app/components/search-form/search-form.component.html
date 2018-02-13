@@ -1,0 +1,27 @@
+<div class="card">
+  <h3 class="card-header">Determine Owner Eligibility</h3>
+  <div class="card-block">
+    <form class="form-inline" #f="ngForm" novalidate (submit)="onSubmit(f)">
+      <label for="inlineFormInput">Driver License</label>
+      <input 
+        type="text" 
+        class="form-control mb-2 mx-sm-3 mr-sm-2 mb-sm-0" 
+        id="inlineFormInput" 
+        placeholder="99999999"
+        [(ngModel)]="driverLicense" 
+        name="driverLicense"
+        #dl="ngModel"
+        minlength="6"
+        maxlength="8"
+        required
+        >
+     
+      <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+    <br>
+    <div *ngIf="dl.errors?.required && dl.touched" class="alert alert-danger">Driver license is required</div>
+    <div *ngIf="dl.errors?.minlength && dl.touched" class="alert alert-danger">Driver license should be at least 6 numbers</div>
+    <div *ngIf="dl.errors?.maxlength && dl.touched" class="alert alert-danger">Driver license should be at most 9 numbers</div>
+  </div>
+</div>
+

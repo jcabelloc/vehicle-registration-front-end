@@ -1,0 +1,25 @@
+<br>
+<table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="w-7 text-center" >Reported Date</th>
+          <th class="w-12 text-center">Charge</th>
+          <th class="w-10 text-center">Category</th>
+          <th class="w-7 text-center">Level of Offense</th>
+          <th class="w-7 text-center">Charges Pending</th>
+          <th class="w-40">Violation Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let criminalDetail of criminalDetails">
+              <td >1</td>
+              <td class="w-7 text-center">{{criminalDetail.date}}</td>
+              <td class="w-12 text-center">{{criminalDetail.charge}}</td>
+              <td class="w-10 text-center">{{criminalDetail.category}}</td>
+              <td class="w-7 text-center">{{criminalDetail.levelOfOffense}}</td>
+              <td class="w-7 text-center">{{criminalDetail.chargesPending}}</td>
+              <td class="w-40">{{criminalDetail.description}}</td>
+          </tr>
+      </tbody>
+  </table>

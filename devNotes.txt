@@ -1,0 +1,109 @@
+
+- Create a new Angular Project from (C:\jcabelloc\workspace\angular\projects)
+> ng new team6
+- Install Bootstrap, Jquery and Tether for the project
+> cd faqapp
+> npm install bootstrap@v4.0.0-alpha.6 jquery tether --save
+- Update manually the package.json file (bootstrap version... remove: ^)
+- Then Execute the install
+> npm install
+- Modify the angular-cli.json file like this
+/*
+      "styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/tether/dist/js/tether.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js"
+
+
+
+*/
+
+- Then Start up the application
+> ng serve
+
+- Create the first component
+> ng g component components/navbar
+- Create a second component
+> ng g component components/searchForm
+
+- Create another component
+> ng g component components/eligibility
+
+- Create another component
+> ng g component components/detail
+
+- Create a service
+> ng g service services/eligibilityData
+- Remember after creating, you need to add it into app.module.ts
+
+
+
+
+- Just Add another component
+> ng g component components/question
+- Just one more
+> ng g component components/addQuestion
+
+** Remember: When use Forms, add FormsModule to the app.module.ts
+
+For deploying:
+- Modify the base href in the index.html file, i.e. "/faqapp"
+- Then build the app
+> ng build
+
+
+
+----
+- Create another component
+> ng g component components/vehicle-main
+
+- Create another component
+> ng g component components/vehicleDetail
+
+- Create a second component
+> ng g component components/vehicleSearch
+
+- Create a service
+> ng g service services/vehicleEligibility
+- Remember after creating, you need to add it into app.module.ts
+
+
+----
+- Create the login component
+> ng g component components/login
+- Install AngularFire2
+> npm install firebase angularfire2 --save
+- Install Flash Messages
+> npm install --save angular2-flash-messages
+- Create the Auth Service
+> ng g service services/auth
+
+- Create the home component
+> ng g component components/home
+
+-----
+- Adding Google Maps
+> npm install @agm/core --save
+- Modify the app.module.ts
+import { AgmCoreModule } from '@agm/core';
+-- In the import section include
+	AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
+    })
+
+- Create the map component
+> ng g component components/vehicleMap
+
+- Install Font Awesome
+> npm install --save font-awesome
+- Modify the angular-cli.json file like this
+/*
+      "styles": [
+        "styles.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
